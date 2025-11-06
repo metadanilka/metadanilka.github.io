@@ -463,9 +463,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.75rem;
 }
 
-/* Tooltip */
-.info-tooltip {
-    position: relative;
+/* Info Icon */
+.info-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -478,81 +477,144 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--primary);
-    cursor: help;
+    cursor: pointer;
     transition: all 0.3s ease;
     vertical-align: middle;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.info-tooltip:hover {
+.info-icon:hover {
     background: rgba(255, 215, 135, 0.3);
     border-color: var(--primary);
     transform: scale(1.1);
 }
 
-.info-tooltip::after {
-    content: attr(data-tooltip);
+/* Info Popup */
+.info-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.info-popup.active {
+    display: flex;
+}
+
+.info-popup-overlay {
     position: absolute;
-    bottom: calc(100% + 12px);
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    width: 350px;
-    max-width: 90vw;
-    padding: 1rem 1.25rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+.info-popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
     background: rgba(22, 20, 37, 0.98);
     border: 1px solid rgba(255, 215, 135, 0.3);
     border-radius: var(--radius);
-    color: var(--foreground);
-    font-size: 0.875rem;
-    font-weight: 300;
-    line-height: 1.6;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 1000;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.3s ease;
+    overflow-y: auto;
 }
 
-.info-tooltip::before {
-    content: '';
-    position: absolute;
-    bottom: calc(100% + 4px);
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    border: 8px solid transparent;
-    border-top-color: rgba(22, 20, 37, 0.98);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1001;
-}
-
-.info-tooltip:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-.info-tooltip:hover::before {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Mobile tooltip adjustment */
-@media (max-width: 768px) {
-    .info-tooltip::after {
-        width: 280px;
-        left: auto;
-        right: 0;
-        transform: none;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-    
-    .info-tooltip::before {
-        left: auto;
-        right: 10px;
-        transform: none;
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.info-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 215, 135, 0.1);
+    border: 1px solid rgba(255, 215, 135, 0.3);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.info-popup-close:hover {
+    background: rgba(255, 215, 135, 0.2);
+    border-color: var(--primary);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.info-popup-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+.info-popup-body p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--foreground);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .info-popup-content {
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
+
+    .info-popup-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .info-popup-body p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    .info-popup-close {
+        width: 28px;
+        height: 28px;
+        font-size: 1.25rem;
+        top: 0.75rem;
+        right: 0.75rem;
     }
 }
 
