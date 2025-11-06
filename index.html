@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Джйотиш - Ведическая Астрология</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <!-- Background stars -->
+        <div class="stars-container" id="starsContainer"></div>
+        
+        <!-- Animated Zodiac Wheel Background -->
+        <div class="vedic-wheel-bg">
+            <img src="https://vedicastrology.store/wp-content/uploads/2023/03/h4-rev-png2.png" alt="Ведический круг" class="vedic-wheel-base">
+            <img src="https://vedicastrology.store/wp-content/uploads/2023/03/h4-rev-png1.png" alt="Знаки зодиака" class="vedic-wheel-rotating">
+        </div>
+        
+        <!-- Mystical glow effect -->
+        <div class="mystical-glow"></div>
+
+        <div class="container">
+            <!-- Header Navigation -->
+            <header class="site-header">
+                <nav class="header-nav">
+                    <a href="#about" class="nav-link">О нас</a>
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <a href="#" class="nav-link">Контакты</a>
+                    <a href="#" class="nav-link">Блог</a>
+                </nav>
+
+                <div class="logo-wrapper">
+                    <img src="logo.png" alt="Джйотиш" class="main-logo">
+                </div>
+
+                <div class="header-auth">
+                    <button class="login-btn">
+                        <svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Войти
+                    </button>
+                </div>
+            </header>
+
+            <div class="hero-content">
+                <!-- Main heading -->
+                <div class="hero-text">
+                    <h1 class="hero-title">Ведическая Астрология</h1>
+                    <p class="hero-subtitle">Джйотиш</p>
+                </div>
+
+                <!-- Subtitle -->
+                <p class="hero-description">
+                    Древняя мудрость звёзд откроет путь к вашей судьбе. Познайте тайны космоса через священное знание Джйотиш
+                </p>
+
+                <!-- Birth Calculator -->
+                <div class="calculator-wrapper">
+                    <div class="calculator-header">
+                        <svg class="calculator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/>
+                        </svg>
+                        <h2 class="calculator-title">Рассчитайте свою натальную карту</h2>
+                        <p class="calculator-description">Введите данные о рождении для составления персонального гороскопа</p>
+                    </div>
+
+                    <form id="birthForm" class="birth-form">
+                        <div class="form-groups-row">
+                            <div class="form-group">
+                                <label class="form-label">Дата рождения</label>
+                                <div class="date-grid">
+                                    <select id="birthDay" class="form-select" required>
+                                    </select>
+                                    <select id="birthMonth" class="form-select" required>
+                                    </select>
+                                    <select id="birthYear" class="form-select" required>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Время рождения
+                                    <span class="info-tooltip" data-tooltip="Если вы не знаете своего времени рождения, описание натальной карты будет не полной. Но вы сможете полноценно пользоваться разделом с планетарными транзитами, разобраться с вашими периодами Саде Сати, узнать важные подробности вашего предназначения, формирующиеся сочетаниями планет в день вашего рождения, и некоторые другие вещи, для вычисления которых времени рождения не требуется.">
+                                        ?
+                                    </span>
+                                </label>
+                                <div class="time-wrapper">
+                                    <button type="button" id="timeUnknownBtn" class="time-unknown-btn">Не знаю</button>
+                                    <div class="time-inputs">
+                                        <select id="birthHour" class="form-select">
+                                            <option value="">Часы</option>
+                                        </select>
+                                        <span class="time-separator">:</span>
+                                        <select id="birthMinute" class="form-select">
+                                            <option value="">Минуты</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Место рождения</label>
+                                <div class="place-wrapper">
+                                    <svg class="place-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    <input type="text" id="birthPlace" placeholder="Начните вводить город..." class="form-input place-input" required>
+                                    <div id="cityResults" class="city-results hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" id="calculateBtn" class="calculate-btn">
+                                <span class="btn-content">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/>
+                                    </svg>
+                                    Рассчитать натальную карту
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="stars-container"></div>
+        <div class="about-background"></div>
+
+        <div class="container">
+            <div class="about-card">
+                <h2 class="about-title">О Джйотиш</h2>
+
+                <div class="about-content">
+                    <p>
+                        Джйотиш - древняя ведическая наука о свете, которая раскрывает тайны судьбы через изучение небесных
+                        тел. Это священное знание передавалось из поколения в поколение на протяжении тысячелетий.
+                    </p>
+
+                    <p>
+                        В отличие от западной астрологии, ведическая система использует сидерический зодиак и учитывает
+                        прецессию равноденствий, что делает предсказания более точными и глубокими.
+                    </p>
+
+                    <p>
+                        Джйотиш помогает понять кармические задачи, раскрыть потенциал и найти гармонию с космическими
+                        ритмами. Это не просто предсказание будущего, но путь к самопознанию и духовному росту.
+                    </p>
+                </div>
+
+                <div class="about-divider">
+                    <div class="divider-line"></div>
+                    <span class="divider-text">Древняя мудрость</span>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zodiac Wheel Section -->
+    <section id="zodiac" class="zodiac-section">
+        <div class="stars-container"></div>
+        <div class="section-background"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Двенадцать Раши</h2>
+                <p class="section-description">Зодиакальный круг ведической астрологии - путь души через космические энергии</p>
+            </div>
+
+            <div class="zodiac-grid" id="zodiacGrid"></div>
+        </div>
+    </section>
+
+    <!-- Planets Section -->
+    <section id="planets" class="planets-section">
+        <div class="stars-container"></div>
+        <div class="planets-background"></div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Девять Грах</h2>
+                <p class="section-description">Планеты-управители судьбы в ведической астрологии</p>
+            </div>
+
+            <div class="planets-grid" id="planetsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="stars-container"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-description">Профессиональные астрологические консультации</p>
+            </div>
+
+            <div class="services-grid-new">
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="https://saturn.love/images/icon/report.svg" alt="Натальная карта" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Натальная карта</h3>
+                    <p class="service-description">Полный разбор вашей натальной карты с подробным анализом всех домов, планет и аспектов</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="https://saturn.love/images/icon/transite.svg" alt="Транзиты" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Транзиты и прогнозы</h3>
+                    <p class="service-description">Анализ текущих транзитов планет и прогноз на важные периоды жизни</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="https://saturn.love/images/icon/moonday.svg" alt="Лунный календарь" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Лунный календарь</h3>
+                    <p class="service-description">Персональные рекомендации на основе лунных фаз и накшатр</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <img src="https://saturn.love/images/icon/sadisati.svg" alt="Садисати" class="service-icon">
+                    </div>
+                    <h3 class="service-title">Период Садисати</h3>
+                    <p class="service-description">Анализ периода Садисати и рекомендации по прохождению сложных транзитов Сатурна</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/>
+                        </svg>
+                    </div>
+                    <div class="footer-brand-text">
+                        <p class="footer-brand-title">Джйотиш</p>
+                        <p class="footer-brand-subtitle">Ведическая астрология</p>
+                    </div>
+                </div>
+
+                <nav class="footer-nav">
+                    <a href="#about" class="footer-link">О нас</a>
+                    <a href="#services" class="footer-link">Услуги</a>
+                    <a href="#" class="footer-link">Контакты</a>
+                    <a href="#" class="footer-link">Блог</a>
+                </nav>
+
+                <p class="footer-copyright">© 2025 Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
