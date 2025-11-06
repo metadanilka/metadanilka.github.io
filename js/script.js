@@ -540,3 +540,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Info Popup Handler
+document.querySelectorAll('.info-icon').forEach(icon => {
+    icon.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const popupId = this.getAttribute('data-popup');
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close popup handlers
+document.querySelectorAll('.info-popup').forEach(popup => {
+    // Close button
+    const closeBtn = popup.querySelector('.info-popup-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Overlay click
+    const overlay = popup.querySelector('.info-popup-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+});
+
+// Close popup on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.info-popup.active').forEach(popup => {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+});
