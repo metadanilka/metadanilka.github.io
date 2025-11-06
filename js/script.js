@@ -3,7 +3,7 @@ const zodiacSigns = [
   { name: "Меша", sanskrit: "Овен", symbol: "♈", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-aries-png.png", dates: "21 марта – 19 апреля" },
   { name: "Вришабха", sanskrit: "Телец", symbol: "♉", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-taurus-png.png", dates: "20 апреля – 20 мая" },
   { name: "Митхуна", sanskrit: "Близнецы", symbol: "♊", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-gemini-png.png", dates: "21 мая – 20 июня" },
-  { name: "Карката", sanskrit: "Рак", symbol: "♋", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-cancer-png.png", dates: "21 июня – 22 июля" },
+  { name: "Карка", sanskrit: "Рак", symbol: "♋", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-cancer-png.png", dates: "21 июня – 22 июля" },
   { name: "Симха", sanskrit: "Лев", symbol: "♌", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-leo-png.png", dates: "23 июля – 22 августа" },
   { name: "Канья", sanskrit: "Дева", symbol: "♍", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-virgo-png.png", dates: "23 августа – 22 сентября" },
   { name: "Тула", sanskrit: "Весы", symbol: "♎", image: "https://vedicastrology.store/wp-content/uploads/2023/02/Main-home-libra-png.png", dates: "23 сентября – 22 октября" },
@@ -42,7 +42,7 @@ const planets = [
         icon: '<path d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/>'
     },
     { 
-        name: "Гуру", 
+        name: "Брихаспати (Гуру)", 
         translation: "Юпитер", 
         description: "Мудрость, удача, учитель",
         icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'
@@ -585,3 +585,4 @@ document.addEventListener('keydown', function(e) {
         });
     }
 });
+
