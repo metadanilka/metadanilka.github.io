@@ -1327,6 +1327,9 @@ h1, h2, h3, h4, h5, h6 {
 .planet-card:nth-child(7) { animation-delay: 0.7s; }
 .planet-card:nth-child(8) { animation-delay: 0.8s; }
 .planet-card:nth-child(9) { animation-delay: 0.9s; }
+.planet-card:nth-child(10) { animation-delay: 1.0s; }
+.planet-card:nth-child(11) { animation-delay: 1.1s; }
+.planet-card:nth-child(12) { animation-delay: 1.2s; }
 
 .planet-card:hover {
     border-color: rgba(255, 215, 135, 0.5);
@@ -1505,21 +1508,18 @@ h1, h2, h3, h4, h5, h6 {
 /* New Services Grid */
 .services-grid-new {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Можно раскомментировать для 4 карточек в ряд */
-/* 
-@media (min-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     .services-grid-new {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 1400px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
     }
 }
-*/
 
 .services-grid-new .service-card {
     background: rgba(26, 26, 36, 0.6);
@@ -1541,6 +1541,11 @@ h1, h2, h3, h4, h5, h6 {
 .services-grid-new .service-card:nth-child(2) { animation-delay: 0.2s; }
 .services-grid-new .service-card:nth-child(3) { animation-delay: 0.3s; }
 .services-grid-new .service-card:nth-child(4) { animation-delay: 0.4s; }
+.services-grid-new .service-card:nth-child(5) { animation-delay: 0.5s; }
+.services-grid-new .service-card:nth-child(6) { animation-delay: 0.6s; }
+.services-grid-new .service-card:nth-child(7) { animation-delay: 0.7s; }
+.services-grid-new .service-card:nth-child(8) { animation-delay: 0.8s; }
+.services-grid-new .service-card:nth-child(9) { animation-delay: 0.9s; }
 
 @keyframes fadeInUp {
     from {
