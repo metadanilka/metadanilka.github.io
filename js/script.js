@@ -70,6 +70,24 @@ const planets = [
         translation: "Южный узел", 
         description: "Освобождение, духовность",
         icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'
+    },
+    { 
+        name: "Нептун", 
+        translation: "Нептун", 
+        description: "Духовность, интуиция, сострадание",
+        icon: '<path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/><path d="M12 12v8"/><path d="M8 14l4-2 4 2"/>'
+    },
+    { 
+        name: "Уран", 
+        translation: "Уран", 
+        description: "Внезапность, свобода, новаторство",
+        icon: '<circle cx="12" cy="12" r="9" stroke-width="1.5"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 3 L15 8 L9 8 Z" fill="currentColor"/><path d="M21 12 L16 15 L16 9 Z" fill="currentColor"/><path d="M12 21 L9 16 L15 16 Z" fill="currentColor"/><path d="M3 12 L8 9 L8 15 Z" fill="currentColor"/>'
+    },
+    { 
+        name: "Плутон", 
+        translation: "Плутон", 
+        description: "Трансформация, разрушение, власть",
+        icon: '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><path d="M12 6v6l4 2"/>'
     }
 ];
 
